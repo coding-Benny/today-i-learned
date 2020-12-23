@@ -43,10 +43,13 @@
   print('Old List:', old_list)  # Old List: [1, 2, 3]
   ```
 ## 2. 최적화를 위해 deque 사용 고려하기
-*n*번 반복할 때<br>
-- 리스트의 `pop()` : <img src="https://render.githubusercontent.com/render/math?math=O(n^2)">
-- deque의 `popleft()` : <img src="https://render.githubusercontent.com/render/math?math=O(n)">
-으로 deque을 사용하면 크게 성능을 향상시킬 수 있다!
+- 리스트의 `pop(0)`
+  - 첫 번째 원소를 삭제하고 이후 원소들을 빈 칸을 채우기 위해 이동시켜야 하므로 <img src="https://render.githubusercontent.com/render/math?math=O(n)">
+  - *n*번 반복하면 <img src="https://render.githubusercontent.com/render/math?math=O(n^2)">
+- *deque*의 `popleft()`
+  - *deque*은 이중 연결 리스트이므로 <img src="https://render.githubusercontent.com/render/math?math=O(1)">이면 됨
+  - *n*번 반복하면 <img src="https://render.githubusercontent.com/render/math?math=O(n)">
+- 즉, deque을 사용하면 크게 성능을 향상시킬 수 있다!
 ## 3. 람다 표현식
 - 식별자 없이 실행 가능한 함수
 - 별도의 함수 선언 없이 하나의 식으로 함수를 단순하게 표현
